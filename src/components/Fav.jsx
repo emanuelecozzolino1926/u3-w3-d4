@@ -2,7 +2,7 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { deleteFromFavAction } from "../redux/actions";
 const Fav = function () {
   const fav = useSelector((currState) => {
     return currState.fav.content;
@@ -25,10 +25,7 @@ const Fav = function () {
                 <Button
                   variant="danger"
                   onClick={() => {
-                    dispatch({
-                      type: "DELETE_FROM_FAV",
-                      payload: comp,
-                    });
+                    dispatch(deleteFromFavAction(comp));
                   }}
                 >
                   <FaTrash className="me-3" />

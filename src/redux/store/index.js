@@ -1,6 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mainReducer from "../reducers";
+import favReducer from "../reducers/favReducer";
+import dataReducer from "../reducers/dataReducer";
 
-const store = configureStore({ reducer: mainReducer });
+const store = configureStore({
+  reducer: {
+    fav: favReducer,
+    data: dataReducer,
+  },
+});
 
 export default store;

@@ -2,6 +2,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import { addToFavAction } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -16,10 +17,7 @@ const Job = ({ data }) => {
           variant="transparent"
           className="text-danger"
           onClick={() => {
-            dispatch({
-              type: "ADD_TO_FAV",
-              payload: data.company_name,
-            });
+            dispatch(addToFavAction(data.company_name));
           }}
         >
           <FaHeart />
